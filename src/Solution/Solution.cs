@@ -16,4 +16,22 @@ namespace Solution
     {
         int FindMin(int[] nums);
     }
+
+    public class NaiveSolution : ISolution
+    {
+        public int FindMin(int[] nums)
+        {
+            int min = nums[0];
+
+            for (int i = 1; i < nums.Length; i++)
+            {
+                if (nums[i] < min)
+                {
+                    min = nums[i];
+                }
+            }
+
+            return min;
+        }
+    }
 }
