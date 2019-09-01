@@ -15,6 +15,7 @@ namespace Solution.Test
         private ISolution _sut = new Fixture().Create<T>();
 
         [TestCase(4, 5, 6, 7, 0, 1, 2, ExpectedResult = 0)]
+        [TestCase(2, 3, 4, 5, 1, ExpectedResult = 1)]
         public int FindMin(params int[] input) => _sut.FindMin(input);
     }
 }
