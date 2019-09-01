@@ -55,7 +55,7 @@ namespace Solution
 
                 min = Math.Min(Math.Min(Math.Min(min, startValue), midValue), endValue);
 
-                if (Math.Min(startValue, midValue) < Math.Min(midValue, endValue))
+                if (Math.Min(startValue, midValue) <= Math.Min(midValue, endValue))
                 {
                     endIndex = midIndex - 1;
                 }
