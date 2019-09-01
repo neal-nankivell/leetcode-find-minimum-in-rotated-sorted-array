@@ -2,31 +2,18 @@
 
 namespace Solution
 {
+    /*
+    Suppose an array sorted in ascending order is rotated at
+    some pivot unknown to you beforehand.
+
+    (i.e.,  [0,1,2,4,5,6,7] might become  [4,5,6,7,0,1,2]).
+
+    Find the minimum element.
+
+    You may assume no duplicate exists in the array.
+    */
     public interface ISolution
     {
-        int Add(params int[] input);
-    }
-
-    public class NaiveSolution : ISolution
-    {
-        // A simple solution using a foreach loop
-        public int Add(params int[] input)
-        {
-            int sum = 0;
-
-            foreach (int value in input)
-            {
-                sum += value;
-            }
-
-            return sum;
-        }
-    }
-
-    public class ImprovedSolution : ISolution
-    {
-        // A slightly cleaner solution using linq
-        // note: no notable performance change in this example
-        public int Add(params int[] input) => input.Sum();
+        int FindMin(int[] nums);
     }
 }
