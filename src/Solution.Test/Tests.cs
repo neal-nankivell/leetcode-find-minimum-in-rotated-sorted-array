@@ -4,6 +4,7 @@ using NUnit.Framework;
 namespace Solution.Test
 {
     public class NaiveSolutionTests : GenericSolutionTests<NaiveSolution> { }
+    public class SlidingWindowTests : GenericSolutionTests<SlidingWindowSolution> { }
 
     /// <summary>
     /// As we expect to iterate on solutions to the same kata/problem,
