@@ -1,32 +1,71 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace Solution
 {
+    /*
+    Suppose an array sorted in ascending order is rotated at
+    some pivot unknown to you beforehand.
+
+    (i.e.,  [0,1,2,4,5,6,7] might become  [4,5,6,7,0,1,2]).
+
+    Find the minimum element.
+
+    You may assume no duplicate exists in the array.
+    */
     public interface ISolution
     {
-        int Add(params int[] input);
+        int FindMin(int[] nums);
     }
 
     public class NaiveSolution : ISolution
     {
-        // A simple solution using a foreach loop
-        public int Add(params int[] input)
+        public int FindMin(int[] nums)
         {
-            int sum = 0;
+            int min = nums[0];
 
-            foreach (int value in input)
+            for (int i = 1; i < nums.Length; i++)
             {
-                sum += value;
+                if (nums[i] < min)
+                {
+                    min = nums[i];
+                }
             }
 
-            return sum;
+            return min;
         }
     }
 
-    public class ImprovedSolution : ISolution
+    public class SlidingWindowSolution : ISolution
     {
-        // A slightly cleaner solution using linq
-        // note: no notable performance change in this example
-        public int Add(params int[] input) => input.Sum();
+        public int FindMin(int[] nums)
+        {
+            int min = nums[0];
+
+            int startIndex = 0;
+            int endIndex = nums.Length - 1;
+
+            while (startIndex < endIndex)
+            {
+                int midIndex = ((endIndex - startIndex) / 2) + startIndex;
+
+                int startValue = nums[startIndex];
+                int midValue = nums[midIndex];
+                int endValue = nums[endIndex];
+
+                min = Math.Min(Math.Min(Math.Min(min, startValue), midValue), endValue);
+
+                if (Math.Min(startValue, midValue) <= Math.Min(midValue, endValue))
+                {
+                    endIndex = midIndex - 1;
+                }
+                else
+                {
+                    startIndex = midIndex + 1;
+                }
+            }
+
+            return min;
+        }
     }
 }
