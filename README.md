@@ -4,13 +4,17 @@ Template repository for working on code katas in C#
 
 # Building / Running Tests
 
-## Using docker-compose
+## Using VSCode
 
-run `docker-compose up`, This will build and run the tests
+Default `build` and `test` commands are configured in `.vscode/tasks.json`
 
 ## Using dotnet
 
-from the `src` directory run `dotnet test` or `dotnet build`
+From the `src` directory run `dotnet test` or `dotnet build`
+
+## Using docker-compose
+
+Run `docker-compose up`, This will build and run the tests
 
 # Code Structure
 
