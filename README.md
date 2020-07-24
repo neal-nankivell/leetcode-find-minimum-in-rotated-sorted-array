@@ -1,6 +1,5 @@
-# csharp-kata-template
-
-Template repository for working on code katas in C#
+# Created from csharp-kata-template
+[csharp-kata-template](https://github.com/neal-nankivell/csharp-kata-template) repository for working on code katas in C# 
 
 # Building / Running Tests
 
