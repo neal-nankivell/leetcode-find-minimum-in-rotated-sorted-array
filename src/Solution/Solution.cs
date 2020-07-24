@@ -45,29 +45,25 @@ namespace Solution
     {
         public int FindMin(int[] nums)
         {
-            int min = nums[0];
-
-            int startIndex = 0;
-            int endIndex = nums.Length - 1;
+            var (min, startIndex, endIndex) = (nums[0], 0, nums.Length - 1);
 
             while (startIndex < endIndex)
             {
                 int midIndex = ((endIndex - startIndex) / 2) + startIndex;
 
-                int startValue = nums[startIndex];
-                int midValue = nums[midIndex];
-                int endValue = nums[endIndex];
-
-                min = Math.Min(Math.Min(Math.Min(min, startValue), midValue), endValue);
-
-                if (Math.Min(startValue, midValue) <= Math.Min(midValue, endValue))
+                (min, startIndex, endIndex) = (nums[startIndex], nums[midIndex], nums[endIndex]) switch
                 {
-                    endIndex = midIndex - 1;
-                }
-                else
-                {
-                    startIndex = midIndex + 1;
-                }
+                    var (startValue, middleValue, endValue)
+                        when startValue < middleValue && startValue < endValue
+                            => (startValue, startIndex, midIndex - 1),
+
+                    var (_, middleValue, endValue)
+                        when middleValue < endValue
+                            => (middleValue, startIndex, midIndex - 1),
+
+                    var (_, _, endValue)
+                        => (endValue, midIndex + 1, endIndex),
+                };
             }
 
             return min;
