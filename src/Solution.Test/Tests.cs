@@ -4,6 +4,7 @@ using NUnit.Framework;
 namespace Solution.Test
 {
     public class NaiveSolutionTests : GenericSolutionTests<NaiveSolution> { }
+    public class LinqSolutionTests : GenericSolutionTests<LinqSolution> { }
     public class SlidingWindowTests : GenericSolutionTests<SlidingWindowSolution> { }
 
     /// <summary>
