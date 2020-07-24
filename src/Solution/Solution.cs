@@ -24,11 +24,11 @@ namespace Solution
         {
             int min = nums[0];
 
-            for (int i = 1; i < nums.Length; i++)
+            foreach (var num in nums)
             {
-                if (nums[i] < min)
+                if (num < min)
                 {
-                    min = nums[i];
+                    min = num;
                 }
             }
 
