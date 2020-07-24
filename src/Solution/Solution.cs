@@ -36,6 +36,11 @@ namespace Solution
         }
     }
 
+    public class LinqSolution : ISolution
+    {
+        public int FindMin(int[] nums) => nums.Min();
+    }
+
     public class SlidingWindowSolution : ISolution
     {
         public int FindMin(int[] nums)
