@@ -49,7 +49,7 @@ namespace Solution
 
             while (startIndex < endIndex)
             {
-                int midIndex = ((endIndex - startIndex) / 2) + startIndex;
+                int midIndex = startIndex + ((endIndex - startIndex) / 2);
 
                 (min, startIndex, endIndex) = (nums[startIndex], nums[midIndex], nums[endIndex]) switch
                 {
